@@ -1,9 +1,14 @@
 import 'package:get/get.dart';
 
-class UserProvider extends GetConnect {
+class SampleProvider extends GetConnect {
   // Get request
-  Future<Response> getData() {
-    var data = get('https://api.opensea.io/api/v1/assets?format=json');
-    return data;
+  Future<dynamic> getData() async {
+    Response response = await get('https://egaewgaweg');
+    if (response.statusCode == 200) {
+      return response.body;
+    }
+    {
+      return null;
+    }
   }
 }

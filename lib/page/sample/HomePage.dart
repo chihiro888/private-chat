@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/page/sample/APIPage.dart';
 import 'package:flutter_project/page/sample/InternationalizationPage.dart';
 import 'package:flutter_project/page/sample/statePage.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,11 @@ import 'package:get/get.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final List<String> entries = <String>['State', 'Internationalization'];
+    final List<String> entries = <String>[
+      'State',
+      'Internationalization',
+      'API'
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +27,7 @@ class HomePage extends StatelessWidget {
               } else if (index == 1) {
                 Get.to(() => InternationalizationPage());
               } else if (index == 2) {
-                //
+                Get.to(() => APIPage());
               }
             },
             child: Container(

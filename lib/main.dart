@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/Internationalization/Messages.dart';
+import 'package:flutter_project/page/sample/APIPage.dart';
 import 'package:flutter_project/page/sample/InternationalizationPage.dart';
 import 'package:flutter_project/page/sample/homePage.dart';
 import 'package:flutter_project/page/sample/statePage.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/sample/internationalization',
             page: () => InternationalizationPage()),
+        GetPage(name: '/sample/api', page: () => APIPage()),
       ],
     );
   }
