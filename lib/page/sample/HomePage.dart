@@ -1,13 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/page/sample/InternationalizationPage.dart';
 import 'package:flutter_project/page/sample/statePage.dart';
-import 'package:flutter_project/widget/textSection.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final List<String> entries = <String>['State', 'Internationalization'];
@@ -22,9 +18,9 @@ class HomePage extends StatelessWidget {
           return InkWell(
             onTap: () {
               if (index == 0) {
-                Get.to(() => const StatePage());
+                Get.to(() => StatePage());
               } else if (index == 1) {
-                Get.to(() => const InternationalizationPage());
+                Get.to(() => InternationalizationPage());
               } else if (index == 2) {
                 //
               }

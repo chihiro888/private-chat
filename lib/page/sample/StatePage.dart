@@ -2,14 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project/controller/CounterController.dart';
 import 'package:get/get.dart';
 
-class StatePage extends StatefulWidget {
-  const StatePage({Key? key}) : super(key: key);
-
-  @override
-  State<StatePage> createState() => _StatePage();
-}
-
-class _StatePage extends State<StatePage> {
+class StatePage extends StatelessWidget {
   final CountController c = Get.put(CountController());
 
   @override

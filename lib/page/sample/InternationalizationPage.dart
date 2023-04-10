@@ -1,17 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/main.dart';
 import 'package:flutter_project/widget/textSection.dart';
 import 'package:get/get.dart';
 
-class InternationalizationPage extends StatefulWidget {
-  const InternationalizationPage({Key? key}) : super(key: key);
-
-  @override
-  State<InternationalizationPage> createState() => _InternationalizationPage();
-}
-
-class _InternationalizationPage extends State<InternationalizationPage> {
+class InternationalizationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

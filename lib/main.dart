@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
       locale: const Locale('ko', 'KR'),
       fallbackLocale: const Locale('en', 'US'),
       getPages: [
-        GetPage(name: '/', page: () => const HomePage()),
-        GetPage(name: '/sample/state', page: () => const StatePage()),
+        GetPage(name: '/', page: () => HomePage()),
+        GetPage(name: '/sample/state', page: () => StatePage()),
         GetPage(
             name: '/sample/internationalization',
-            page: () => const InternationalizationPage()),
+            page: () => InternationalizationPage()),
       ],
     );
   }
