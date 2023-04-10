@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/controller/APIController.dart';
+import 'package:flutter_project/widget/testSection.dart';
 import 'package:get/get.dart';
 
 class APIPage extends StatelessWidget {
@@ -12,7 +13,10 @@ class APIPage extends StatelessWidget {
           title: const Text('API'),
         ),
         body: Column(
-          children: [Obx(() => Text("${apiController.count}"))],
+          children: [
+            Obx(() => Text("${apiController.count}")),
+            TestSection(),
+          ],
         ));
   }
 }
