@@ -13,16 +13,15 @@ class OnePage extends StatefulWidget {
 class _OnePage extends State<OnePage> {
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('One Page'),
+      ),
+      body: Row(
       children: [
-        const Text('One Page'),
-        ElevatedButton(
-        onPressed: () {
-           Get.back();
-        },
-        child: const Text('Back to MyApp'),
-      )
+        //
       ]
+    )
     );
   }
 }

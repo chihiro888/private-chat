@@ -13,16 +13,15 @@ class TwoPage extends StatefulWidget {
 class _TwoPage extends State<TwoPage> {
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Two Page'),
+      ),
+      body: Row(
       children: [
-        const Text('Two Page'),
-        ElevatedButton(
-        onPressed: () {
-           Get.back();
-        },
-        child: const Text('Back to MyApp'),
-      )
+        //
       ]
+    )
     );
   }
 }

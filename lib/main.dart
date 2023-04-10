@@ -14,8 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
-      home: Row(children: [
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Home'),
+        ),
+        body: Row(children: [
         ElevatedButton(
           onPressed: () {
             Get.to(() => const OnePage());
@@ -29,6 +32,7 @@ class MyApp extends StatelessWidget {
           child: const Text('Go to TwoPage'),
         ),
       ],)
-    );
+        )
+      );
   }
 }
