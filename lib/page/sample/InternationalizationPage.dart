@@ -4,19 +4,19 @@ import 'package:flutter_project/main.dart';
 import 'package:flutter_project/widget/textSection.dart';
 import 'package:get/get.dart';
 
-class TwoPage extends StatefulWidget {
-  const TwoPage({Key? key}) : super(key: key);
+class InternationalizationPage extends StatefulWidget {
+  const InternationalizationPage({Key? key}) : super(key: key);
 
   @override
-  State<TwoPage> createState() => _TwoPage();
+  State<InternationalizationPage> createState() => _InternationalizationPage();
 }
 
-class _TwoPage extends State<TwoPage> {
+class _InternationalizationPage extends State<InternationalizationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Two Page'),
+          title: const Text('Internationalization'),
         ),
         body: Row(children: [
           textSection,

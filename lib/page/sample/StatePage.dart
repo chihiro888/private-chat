@@ -4,21 +4,21 @@ import 'package:flutter_project/controller/CounterController.dart';
 import 'package:flutter_project/main.dart';
 import 'package:get/get.dart';
 
-class OnePage extends StatefulWidget {
-  const OnePage({Key? key}) : super(key: key);
+class StatePage extends StatefulWidget {
+  const StatePage({Key? key}) : super(key: key);
 
   @override
-  State<OnePage> createState() => _OnePage();
+  State<StatePage> createState() => _StatePage();
 }
 
-class _OnePage extends State<OnePage> {
+class _StatePage extends State<StatePage> {
   final CountController c = Get.put(CountController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('One Page'),
+          title: const Text('State'),
         ),
         body: Row(children: [
           Obx(() => Text("${c.count}")),

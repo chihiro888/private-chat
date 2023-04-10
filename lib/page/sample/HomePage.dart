@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/page/one.dart';
-import 'package:flutter_project/page/two.dart';
+import 'package:flutter_project/page/sample/InternationalizationPage.dart';
+import 'package:flutter_project/page/sample/statePage.dart';
 import 'package:flutter_project/widget/textSection.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> entries = <String>['State', 'Internationalization', 'C'];
+    final List<String> entries = <String>['State', 'Internationalization'];
 
     return Scaffold(
       appBar: AppBar(
@@ -22,18 +22,21 @@ class HomePage extends StatelessWidget {
           return InkWell(
             onTap: () {
               if (index == 0) {
-                Get.to(() => const OnePage());
+                Get.to(() => const StatePage());
               } else if (index == 1) {
-                Get.to(() => const TwoPage());
+                Get.to(() => const InternationalizationPage());
               } else if (index == 2) {
-                Get.to(() => const TwoPage());
+                //
               }
             },
             child: Container(
               height: 50,
               color: Color.fromARGB(66, 197, 197, 197),
               child: Center(
-                child: Text('Sample ${index}: ${entries[index]}'),
+                child: Text(
+                  'Sample ${index + 1}: ${entries[index]}',
+                  textAlign: TextAlign.left,
+                ),
               ),
             ),
           );
