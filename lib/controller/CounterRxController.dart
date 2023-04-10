@@ -7,6 +7,8 @@ class CountRxController extends GetxController {
 
   @override
   void onInit() {
+    print('onInit 호출');
+
     once(count, (d) {
       print('최초 한번 실행 => $d');
     });
@@ -24,5 +26,12 @@ class CountRxController extends GetxController {
     );
 
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    print('onClose 호출');
+
+    super.onClose();
   }
 }
