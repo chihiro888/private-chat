@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/controller/CounterController.dart';
-import 'package:flutter_project/main.dart';
 import 'package:get/get.dart';
 
 class StatePage extends StatefulWidget {
@@ -17,23 +15,39 @@ class _StatePage extends State<StatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('State'),
-        ),
-        body: Row(children: [
-          Obx(() => Text("${c.count}")),
-          ElevatedButton(
-            onPressed: () {
-              c.increment();
-            },
-            child: const Text('Increment'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              c.decrement();
-            },
-            child: const Text('Increment'),
+      appBar: AppBar(
+        title: const Text('State'),
+      ),
+      body: Column(
+        children: [
+          Obx(() => Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                child: Text(
+                  "${c.count}",
+                  style: const TextStyle(
+                    fontSize: 24,
+                  ),
+                ),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  c.increment();
+                },
+                child: const Text('Increment'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  c.decrement();
+                },
+                child: const Text('Decrement'),
+              )
+            ],
           )
-        ]));
+        ],
+      ),
+    );
   }
 }
