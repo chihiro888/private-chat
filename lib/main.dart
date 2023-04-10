@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/Internationalization/Messages.dart';
+import 'package:flutter_project/page/home.dart';
 import 'package:flutter_project/page/one.dart';
 import 'package:flutter_project/page/two.dart';
+import 'package:flutter_project/widget/textSection.dart';
 import 'package:get/get.dart';
 import 'dart:developer';
 
@@ -14,25 +17,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Home'),
-        ),
-        body: Row(children: [
-        ElevatedButton(
-          onPressed: () {
-            Get.to(() => const OnePage());
-          },
-          child: const Text('Go to OnePage'),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            Get.to(() => const TwoPage());
-          },
-          child: const Text('Go to TwoPage'),
-        ),
-      ],)
-        )
+      translations: Messages(),
+      locale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en', 'US'),
+      getPages: [
+        GetPage(name: '/', page: () => const HomePage()),
+        GetPage(name: '/one', page: () => const OnePage()),
+        GetPage(name: '/two', page: () => const TwoPage()),
+      ],
+    
+      
       );
   }
 }
