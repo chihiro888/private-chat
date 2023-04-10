@@ -10,25 +10,35 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> entries = <String>['State', 'Internationalization', 'C'];
+
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home'),
-        ),
-        body: Row(children: [
-        ElevatedButton(
-          onPressed: () {
-            Get.toNamed('/one');
-          },
-          child: const Text('Go to OnePage'),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            Get.toNamed('/two');
-          },
-          child: const Text('Go to TwoPage'),
-        ),
-      ],
-      )
-        );
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: ListView.builder(
+        itemCount: entries.length,
+        itemBuilder: (BuildContext context, int index) {
+          return InkWell(
+            onTap: () {
+              if (index == 0) {
+                Get.to(() => const OnePage());
+              } else if (index == 1) {
+                Get.to(() => const TwoPage());
+              } else if (index == 2) {
+                Get.to(() => const TwoPage());
+              }
+            },
+            child: Container(
+              height: 50,
+              color: Color.fromARGB(66, 197, 197, 197),
+              child: Center(
+                child: Text('Sample ${index}: ${entries[index]}'),
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }

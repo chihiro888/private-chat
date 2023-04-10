@@ -17,26 +17,23 @@ class _OnePage extends State<OnePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('One Page'),
-      ),
-      body: Row(
-      children: [
-        Obx(() => Text("${c.count}")),
-        ElevatedButton(
-          onPressed: () {
-            c.increment();
-          },
-          child: const Text('Increment'),
+        appBar: AppBar(
+          title: const Text('One Page'),
         ),
-        ElevatedButton(
-          onPressed: () {
-            c.decrement();
-          },
-          child: const Text('Increment'),
-        )
-      ]
-    )
-    );
+        body: Row(children: [
+          Obx(() => Text("${c.count}")),
+          ElevatedButton(
+            onPressed: () {
+              c.increment();
+            },
+            child: const Text('Increment'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              c.decrement();
+            },
+            child: const Text('Increment'),
+          )
+        ]));
   }
 }

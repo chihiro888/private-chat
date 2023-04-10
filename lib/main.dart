@@ -25,8 +25,6 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/one', page: () => const OnePage()),
         GetPage(name: '/two', page: () => const TwoPage()),
       ],
-    
-      
-      );
+    );
   }
 }
