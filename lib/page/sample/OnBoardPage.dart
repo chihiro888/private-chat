@@ -13,14 +13,11 @@ class _OnBoardPageState extends State<OnBoardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('API'),
-      // ),
       body: Column(
         children: [
           Container(
             alignment: Alignment.topRight, // Align the button to the top right
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(32),
             child: TextButton(
               onPressed: () {
                 // Handle skip button press
