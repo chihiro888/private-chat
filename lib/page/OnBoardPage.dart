@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:get/get.dart';
 
 class OnBoardPage extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
             padding: EdgeInsets.all(32),
             child: TextButton(
               onPressed: () {
-                // Handle skip button press
+                Get.offAllNamed('/inviteCode');
               },
               child: Text(
                 'Skip',
@@ -103,7 +104,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                 TextButton(
                   onPressed: () {
                     if (currentPageIndex == 2) {
-                      // Handle start button press on the last page
+                      Get.offAllNamed('/inviteCode');
                     } else {
                       controller.nextPage(
                           duration: Duration(milliseconds: 500),
