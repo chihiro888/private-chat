@@ -41,25 +41,27 @@ class PinNumberPage extends StatelessWidget {
     FirebaseAuth _auth = FirebaseAuth.instance;
 
     void verifySmsCode(String smsCode) async {
-      VerificationController verificationController = VerificationController();
-      String verificationId = verificationController.getVerificationId();
+      // VerificationController verificationController = VerificationController();
+      // String verificationId = verificationController.getVerificationId();
 
-      try {
-        AuthCredential credential = PhoneAuthProvider.credential(
-          verificationId: verificationId,
-          smsCode: smsCode,
-        );
+      // try {
+      //   AuthCredential credential = PhoneAuthProvider.credential(
+      //     verificationId: verificationId,
+      //     smsCode: smsCode,
+      //   );
 
-        // 인증 완료
-        await _auth.signInWithCredential(credential);
+      //   // 인증 완료
+      //   await _auth.signInWithCredential(credential);
 
-        // 인증 성공, 다음 작업 수행
-        Get.offAllNamed('/explore');
-      } catch (e) {
-        // 인증 실패
-        print(e.toString());
-        print('인증번호 불일치');
-      }
+      //   // 인증 성공, 다음 작업 수행
+      //   Get.offAllNamed('/explore');
+      // } catch (e) {
+      //   // 인증 실패
+      //   print(e.toString());
+      //   print('인증번호 불일치');
+      // }
+
+      Get.offAllNamed('/explore');
     }
 
     return Scaffold(
@@ -144,27 +146,27 @@ class PinNumberPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 32.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // 인증번호 전송 버튼 클릭 시 처리 로직 추가
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF7E57C2),
-                        foregroundColor: Colors.white,
-                        side: BorderSide(color: Colors.white),
-                        minimumSize: const Size.fromHeight(50),
-                      ),
-                      child: Text(
-                        '인증번호 전송',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  )
+                  // Spacer(),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(bottom: 32.0),
+                  //   child: ElevatedButton(
+                  //     onPressed: () {
+                  //       // 인증번호 전송 버튼 클릭 시 처리 로직 추가
+                  //     },
+                  //     style: ElevatedButton.styleFrom(
+                  //       backgroundColor: const Color(0xFF7E57C2),
+                  //       foregroundColor: Colors.white,
+                  //       side: BorderSide(color: Colors.white),
+                  //       minimumSize: const Size.fromHeight(50),
+                  //     ),
+                  //     child: Text(
+                  //       '인증번호 전송',
+                  //       style: TextStyle(
+                  //         color: Colors.white,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // )
                 ],
               ),
             ),
