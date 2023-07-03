@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ExplorePage extends StatefulWidget {
+class ChatPage extends StatefulWidget {
   @override
-  _ExplorePageState createState() => _ExplorePageState();
+  _ChatPage createState() => _ChatPage();
 }
 
-class _ExplorePageState extends State<ExplorePage> {
-  int _selectedIndex = 0;
+class _ChatPage extends State<ChatPage> {
+  int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
     if (index == 2) {
@@ -50,14 +50,14 @@ class _ExplorePageState extends State<ExplorePage> {
           );
         },
       );
-    } else if (index == 0) {
-      // "탐색"을 클릭했을 때
+    } else if (index == 1) {
+      // "채팅"을 클릭했을 때
       setState(() {
         _selectedIndex = index;
       });
-    } else if (index == 1) {
+    } else if (index == 0) {
       // "채팅"을 클릭했을 때
-      Get.offAllNamed('chat');
+      Get.offAllNamed('explore');
     }
   }
 
@@ -74,7 +74,7 @@ class _ExplorePageState extends State<ExplorePage> {
             Padding(
               padding: EdgeInsets.only(left: 16.0),
               child: Text(
-                '탐색',
+                '채팅',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class _ExplorePageState extends State<ExplorePage> {
           Padding(
             padding: EdgeInsets.only(top: 16.0), // 리스트뷰의 상단 패딩을 16.0으로 설정
             child: ListView.builder(
-              itemCount: 3, // 예시로 3개의 그룹 채팅방 박스를 생성
+              itemCount: 1, // 예시로 3개의 그룹 채팅방 박스를 생성
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Container(
