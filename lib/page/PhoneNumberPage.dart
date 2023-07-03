@@ -4,7 +4,12 @@ import 'package:pinput/pinput.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class PhoneNumberPage extends StatelessWidget {
+class PhoneNumberPage extends StatefulWidget {
+  @override
+  _PhoneNumberPageState createState() => _PhoneNumberPageState();
+}
+
+class _PhoneNumberPageState extends State<PhoneNumberPage> {
   @override
   Widget build(BuildContext context) {
     final pinController1 = TextEditingController();
@@ -68,6 +73,14 @@ class PhoneNumberPage extends StatelessWidget {
         Get.toNamed('/pinNumber');
       }
     }
+
+    // FocusScope.of(context).requestFocus(focusNode1);
+    // @override
+    // void initState() {
+    //   super.initState();
+    //   WidgetsBinding.instance.addPostFrameCallback(
+    //       (_) => FocusScope.of(context).requestFocus(focusNode1));
+    // }
 
     @override
     void dispose() {
