@@ -39,6 +39,7 @@ dependencies:
   flutter_native_splash: ^2.2.19
   smooth_page_indicator: ^1.1.0
   pinput: ^2.2.31
+  firebase_core: ^2.14.0
 
 dev_dependencies:
   flutter_test:
