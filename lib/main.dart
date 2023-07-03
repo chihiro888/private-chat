@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/Internationalization/Messages.dart';
 import 'package:flutter_project/page/InviteCodePage.dart';
+import 'package:flutter_project/page/PhoneNumberPage.dart';
+import 'package:flutter_project/page/PinNumberPage.dart';
+import 'package:flutter_project/page/ExplorePage.dart';
 import 'package:flutter_project/page/sample/APIPage.dart';
 import 'package:flutter_project/page/sample/InternationalizationPage.dart';
 import 'package:flutter_project/page/OnBoardPage.dart';
@@ -32,6 +35,9 @@ class MyApp extends StatelessWidget {
         // main
         GetPage(name: '/', page: () => OnBoardPage()),
         GetPage(name: '/inviteCode', page: () => InviteCodePage()),
+        GetPage(name: '/phoneNumber', page: () => PhoneNumberPage()),
+        GetPage(name: '/pinNumber', page: () => PinNumberPage()),
+        GetPage(name: '/explore', page: () => ExplorePage()),
       ],
     );
   }

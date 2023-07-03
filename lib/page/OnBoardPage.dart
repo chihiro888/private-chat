@@ -25,7 +25,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
               },
               child: Text(
                 'Skip',
-                style: TextStyle(color: Colors.blue),
+                style: TextStyle(color: Color(0xFF7E57C2)),
               ),
             ),
           ),
@@ -93,13 +93,15 @@ class _OnBoardPageState extends State<OnBoardPage> {
                   },
                   child: Text(
                     'Prev',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: Color(0xFF7E57C2)),
                   ),
                 ),
                 SmoothPageIndicator(
                   controller: controller,
                   count: 3, // 총 페이지 수
-                  effect: WormEffect(), // 인디케이터 스타일 선택
+                  effect: WormEffect(
+                    activeDotColor: Color(0xFF7E57C2),
+                  ),
                 ),
                 TextButton(
                   onPressed: () {
@@ -113,7 +115,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                   },
                   child: Text(
                     currentPageIndex == 2 ? 'Start' : 'Next',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: Color(0xFF7E57C2)),
                   ),
                 ),
               ],
