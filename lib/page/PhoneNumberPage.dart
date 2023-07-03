@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/controller/VerificationController.dart';
 import 'package:pinput/pinput.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class PhoneNumberPage extends StatelessWidget {
   @override
@@ -26,7 +28,44 @@ class PhoneNumberPage extends StatelessWidget {
       ),
     );
 
-    String pin1Text = '';
+    FirebaseAuth _auth = FirebaseAuth.instance;
+
+    void verifyPhoneNumber() async {
+      String phoneNumber = pinController1.text.trim();
+      phoneNumber = '+8210' + phoneNumber;
+
+      print(phoneNumber);
+
+      if (phoneNumber.isNotEmpty) {
+        await _auth.verifyPhoneNumber(
+          phoneNumber: phoneNumber,
+          verificationCompleted: (phoneAuthCredential) async {
+            // 자동 검증이 완료된 경우
+            await _auth.signInWithCredential(phoneAuthCredential);
+            // 인증 성공, 다음 작업 수행
+            // 예를 들면, 홈 화면으로 이동
+          },
+          verificationFailed: (FirebaseAuthException e) {
+            print(e.message);
+          },
+          codeSent: (verificationId, resendToken) {
+            // SMS가 성공적으로 전송된 경우
+            VerificationController verificationController =
+                VerificationController();
+            verificationController.setVerificationId(verificationId);
+
+            Get.toNamed('/pinNumber');
+          },
+          codeAutoRetrievalTimeout: (verificationId) {
+            // 자동 검증 시간이 초과된 경우
+            print(2);
+            // setState(() {
+            //   _confirmationResult = null;
+            // });
+          },
+        );
+      }
+    }
 
     @override
     void dispose() {
@@ -92,7 +131,8 @@ class PhoneNumberPage extends StatelessWidget {
                       hapticFeedbackType: HapticFeedbackType.lightImpact,
                       onCompleted: (pin) {
                         debugPrint('onCompleted: $pin');
-                        Get.toNamed('/pinNumber');
+                        verifyPhoneNumber();
+                        // Get.toNamed('/pinNumber');
                       },
                       onChanged: (value) {
                         debugPrint('onChanged: $value');

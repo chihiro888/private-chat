@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/controller/VerificationController.dart';
 import 'package:pinput/pinput.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class PinNumberPage extends StatelessWidget {
   @override
@@ -12,6 +14,8 @@ class PinNumberPage extends StatelessWidget {
     const focusedBorderColor = Color(0xFFFFFFFF);
     const fillColor = Color(0xFFFFFFFF);
     const borderColor = Color(0xFFFFFFFF);
+
+    final verificationController = VerificationController();
 
     final defaultPinTheme = PinTheme(
       width: 56,
@@ -32,6 +36,30 @@ class PinNumberPage extends StatelessWidget {
     void dispose() {
       pinController1.dispose();
       focusNode1.dispose();
+    }
+
+    FirebaseAuth _auth = FirebaseAuth.instance;
+
+    void verifySmsCode(String smsCode) async {
+      VerificationController verificationController = VerificationController();
+      String verificationId = verificationController.getVerificationId();
+
+      try {
+        AuthCredential credential = PhoneAuthProvider.credential(
+          verificationId: verificationId,
+          smsCode: smsCode,
+        );
+
+        // 인증 완료
+        await _auth.signInWithCredential(credential);
+
+        // 인증 성공, 다음 작업 수행
+        Get.offAllNamed('/explore');
+      } catch (e) {
+        // 인증 실패
+        print(e.toString());
+        print('인증번호 불일치');
+      }
     }
 
     return Scaffold(
@@ -81,7 +109,8 @@ class PinNumberPage extends StatelessWidget {
                       hapticFeedbackType: HapticFeedbackType.lightImpact,
                       onCompleted: (pin) {
                         debugPrint('onCompleted: $pin');
-                        Get.offAllNamed('/explore');
+
+                        verifySmsCode(pin);
                       },
                       onChanged: (value) {
                         debugPrint('onChanged: $value');
